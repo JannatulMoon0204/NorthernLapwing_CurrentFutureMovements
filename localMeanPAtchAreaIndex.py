@@ -45,7 +45,7 @@ def mpa_by_block(input_raster_path, output_folder_path, block_size=5000, start_b
         Parameters:
     - input_raster_path: Path to the input raster file.
     - output_folder_path: Directory where processed blocks will be saved.
-    - block_size: Size of each processing block in pixels (default: 5000x5000).
+    - block_size: Size of each processing block in pixels (default: 5000x5000), define the block size depend on the input raster size.
     - start_block: Index of the first block to process (useful for resuming interrupted runs).
     Output:
     - Saves each processed block as a separate raster file.
@@ -86,7 +86,7 @@ def mpa_by_block(input_raster_path, output_folder_path, block_size=5000, start_b
                 block_result = np.full((block_height - 6, block_width - 6), fill_value=np.nan, dtype=float)
                 # Set up parallel processing to compute MPA for each pixel
                 num_cores = multiprocessing.cpu_count()
-                num_cores = 16  # number of cores for optimal performance 
+                num_cores = 4  # number of cores for optimal performance, change according the available resources 
 
                 results = Parallel(n_jobs=num_cores)(
                     delayed(mpa_by_pixel)(i, j, land_cover_block, kernel_radius)
@@ -117,8 +117,8 @@ def mpa_by_block(input_raster_path, output_folder_path, block_size=5000, start_b
                 block_id += 1
 
 # Define input raster path and output folder
-input_raster = "/content/drive/My Drive/dw_2022/dw_2022_mosaic_bB.tif"  
-output_folder = "/content/drive/My Drive/dw_2022/blocks_mpa4"
+input_raster = "/content/drive/My Drive/dw_2022/folder.tif"  
+output_folder = "/content/drive/My Drive/dw_2022/folder"
 # Start processing from block = number
 start_block = 1 #This is especially useful when suddenly the calculation stop. 
 # Run the block processing function

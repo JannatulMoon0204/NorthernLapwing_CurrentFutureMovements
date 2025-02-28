@@ -5,7 +5,7 @@ import os
 import multiprocessing
 from joblib import Parallel, delayed
 
-# Function to calculate the Contagion Index for a given 7x7 window
+# Function to calculate the Contagion Index for a given 7x7 window. In parameters of the function define the number of land use and land cover class of the input raster
 def calculate_contagion(values, n_classes=9):
     """
     Computes the Contagion Index for a given window of land cover values.
@@ -78,7 +78,7 @@ def process_pixel(i, j, block, buffer_size, n_classes=9):
 window_size = 7  # size moving window
 half_window = window_size // 2  # 3-pixel buffer to account for edge effects
 buffer_size = half_window  
-block_size = 5000  # Process raster in blocks of 5000x5000 pixels
+block_size = 5000  # Process raster in blocks of 5000x5000 pixels, define depend on the input raster size.
 
 # Specify the starting block (in terms of row and column)
 start_row = 0  # Row index to start processing from

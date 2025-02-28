@@ -117,8 +117,8 @@ def mpa_by_block(input_raster_path, output_folder_path, block_size=5000, start_b
                 block_id += 1
 
 # Define input raster path and output folder
-input_raster = "/content/drive/My Drive/dw_2022/folder.tif"  
-output_folder = "/content/drive/My Drive/dw_2022/folder"
+input_raster = "/content/drive/My Drive/folder/lulc.tif"  
+output_folder = "/content/drive/My Drive/folder"
 # Start processing from block = number
 start_block = 1 #This is especially useful when suddenly the calculation stop. 
 # Run the block processing function

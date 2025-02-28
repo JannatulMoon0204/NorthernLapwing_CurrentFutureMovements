@@ -12,15 +12,15 @@ library(lubridate)  # Date and time manipulation
 
 
 #Define work directory
-setwd("Y:/Home/esguerrl/Temp")
+setwd("C:/folder/output")
 # Load northern lapwing positions
-position <- st_read("Y:/Home/esguerrl/locations_breeding/locations_points.shp")
+position <- st_read("C:/folder/positions.shp")
 # Load raster layers: Land Use /Land cover (LULC), Diversity Shannon Index, Mean Patch Area Index, and Contagion Index
-landcover <- raster("Y:/Home/esguerrl/dw_2022_mosaic/LandcoverDW2022.tif")
-shannon <- raster("Y:/Home/esguerrl/Indices_Final/Shannon_Total.tif")
-mean_patch_area <- raster("Y:/Home/esguerrl/Indices_Final/MPA_Resampled.tif")
-contagio <- raster("Y:/Home/esguerrl/Indices_Final/Contagion_Resampled.tif")
-elevation <- raster("Y:/Home/esguerrl/Indices_Final/dem30m_merged.tif")
+landcover <- raster("C:/folder/lulc.tif")
+shannon <- raster("C:/folder/shannon.tif")
+mean_patch_area <- raster("C:/folder/mean_patch_area.tif")
+contagio <- raster("C:/folder/contagion.tif")
+elevation <- raster("C:/folder/dem.tif")
 
 # Convert the required data types of the fields x and y coordinates, timestamp (t) and individu-al id (id)
 position$x <- as.numeric(position$x)
